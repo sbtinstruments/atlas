@@ -1,5 +1,5 @@
 
-import { Cesium3DTileset, createWorldTerrain, IonResource, Viewer } from 'cesium';
+import { Cesium3DTileset, createWorldTerrain, IonResource, Viewer, KmlDataSource } from 'cesium';
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import SceneMode from 'cesium/Source/Scene/SceneMode';
 import "./css/main.css";
@@ -10,6 +10,10 @@ import Matrix4 from 'cesium/Source/Core/Matrix4';
 // See https://cesium.com/docs/tutorials/getting-started/ for more details.
 
 var viewer = new Viewer('cesiumContainer');
+var options = {
+    camera: viewer.scene.camera,
+    canvas: viewer.scene.canvas,
+};
 
 viewer.scene.mode = SceneMode.SCENE3D
 //////////////////////////////////////////////////////////////////////////
@@ -18,6 +22,9 @@ viewer.scene.mode = SceneMode.SCENE3D
 
 // Enable lighting based on sun/moon positions
 viewer.scene.globe.enableLighting = true;
+// Enable anti-aliasing
+viewer.scene.fxaa = true;
+
 
 // Set up 
 function icrf(scene, time) {
@@ -47,3 +54,11 @@ function viewInICRF() {
 }
 
 viewInICRF()
+
+// Add markers
+viewer.dataSources.add(
+    KmlDataSource.load(
+        "./src/data/kml/testpoint.kml",
+        options
+    )
+);
