@@ -13,7 +13,10 @@
         selectionIndicator: false,
         baseLayerPicker: false
     });
-
+    var options = {
+        camera: viewer.scene.camera,
+        canvas: viewer.scene.canvas,
+    };
     //////////////////////////////////////////////////////////////////////////
     // Configuring the Scene
     //////////////////////////////////////////////////////////////////////////
@@ -49,11 +52,11 @@
 
     viewInICRF()
 
-    // viewer.dataSources.add(
-    //     KmlDataSource.load(
-    //         data,
-    //         options
-    //     )
-    // );
+    viewer.dataSources.add(
+        Cesium.KmlDataSource.load(
+            "../data/kml/testpoint.kml",
+            options
+        )
+    );
 
 }());
