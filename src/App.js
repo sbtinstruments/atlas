@@ -55,7 +55,7 @@
   
 
     function viewInICRF() {        
-        //viewer.clock.multiplier = 60 * 60;
+        viewer.clock.multiplier = 30 * 60;
         viewer.scene.postUpdate.addEventListener(icrf);
         viewer.scene.globe.enableLighting = true;
     }
