@@ -63,16 +63,6 @@ button.cesium-infoBox-camera {
     display: none;
 }
 
-div.cesium-viewer-bottom {
-    visibility: hidden;
-}
-div.cesium-viewer-animationContainer {
-    visibility: hidden;
-}
-div.cesium-viewer-timelineContainer {
-    visibility: hidden;
-}
-
 #3DTiles {
     padding-top: 10px;
 }
