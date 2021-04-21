@@ -54,7 +54,7 @@
 
     viewer.dataSources.add(
         Cesium.KmlDataSource.load(
-            "../data/kml/testpoint.kml",
+            "../data/kml/locations.kml",
             options
         )
     );

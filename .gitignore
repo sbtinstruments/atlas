@@ -1,2 +1,5 @@
 node_modules/
-googleApiKey
+scripts/googleApiKey
+scripts/json_token.json
+scripts/__pycache__
+data/*
