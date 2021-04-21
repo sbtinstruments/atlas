@@ -1,16 +1,17 @@
 (function () {
     "use strict";
 
-    // TODO: Add your ion access token from cesium.com/ion/
-    // Cesium.Ion.defaultAccessToken = '<YOUR ACCESS TOKEN HERE>';
 
     //////////////////////////////////////////////////////////////////////////
     // Creating the Viewer
     //////////////////////////////////////////////////////////////////////////
+    var extent = Cesium.Rectangle.fromDegrees(45, 53,90, -177);
+    Cesium.Camera.DEFAULT_VIEW_RECTANGLE = extent;
+    Cesium.Camera.DEFAULT_VIEW_FACTOR = 1.75;
 
     var viewer = new Cesium.Viewer('cesiumContainer', {
         scene3DOnly: true,
-        selectionIndicator: false,
+        selectionIndicator: true,
         baseLayerPicker: false
     });
     var options = {
