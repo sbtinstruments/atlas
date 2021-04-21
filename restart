@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "stopping server"
+curl -X POST localhost:8080/cmd
+
+sleep 5
+
+sudo screen -d -m -S "atlas" npm run dev

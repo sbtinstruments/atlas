@@ -134,6 +134,17 @@
         });
     });
 
+    app.get('/cmd', (req, res) => {
+        res.send("HERRO!")
+    })
+    app.post('/cmd', (req, res) => {
+        console.log("POST REQUEST RECEIVED")
+        res.status(201).send('Received')
+        server.close(function() {
+            process.exit(0);
+        });
+    })
+
     var server = app.listen(argv.port, argv.public ? undefined : 'localhost', function() {
         if (argv.public) {
             console.log('Cesium development server running publicly.  Connect to http://localhost:%d/', server.address().port);
