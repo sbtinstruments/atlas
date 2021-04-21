@@ -4,6 +4,7 @@ import xml.dom.minidom
 import json
 import base64
 import scrap_bot
+import random
 
 def get_api_key(filename: str):
     with open(filename, 'r') as f:
@@ -123,7 +124,8 @@ def appendPlacemark(info, coordinates, kmlDoc, documentElement):
     pointElement.appendChild(altitudeElement)
     ## coordinates
     coorElement = kmlDoc.createElement('coordinates')
-    coorElement.appendChild(kmlDoc.createTextNode(coordinates+',3000000'))
+    height = random.randrange(1000000, 3000000, 100000)
+    coorElement.appendChild(kmlDoc.createTextNode(coordinates+','+str(height)))
     pointElement.appendChild(coorElement)
     # Extended data
     datum = ['address', 'sector', 'owns']
