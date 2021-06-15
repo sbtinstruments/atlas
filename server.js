@@ -5,6 +5,7 @@
     var express = require('express');
     var compression = require('compression');
     var url = require('url');
+    const JSON_TOKEN = require('./cesium_token.json')
     var request = require('request');
 
     var yargs = require('yargs').options({
@@ -90,6 +91,9 @@
             bypassUpstreamProxyHosts[host.toLowerCase()] = true;
         });
     }
+    app.get('/json_token', (req, res) => {
+        res.send(JSON_TOKEN)
+    })
 
     app.get('/proxy/*', function(req, res, next) {
         // look for request like http://localhost:8080/proxy/http://example.com/file?query=1

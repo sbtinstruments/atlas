@@ -3,3 +3,4 @@ scripts/googleApiKey
 scripts/json_token.json
 scripts/__pycache__
 data/*
+cesium_token.json

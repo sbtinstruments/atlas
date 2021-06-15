@@ -1,7 +1,10 @@
-(function () {
+(async function () {
     "use strict";
 
-
+    const data = await fetch('./json_token')
+    .then(response => response.json())
+    .then(data => Cesium.Ion.defaultAccessToken = data['token'])
+    .catch(err => console.log(error));
     //////////////////////////////////////////////////////////////////////////
     // Creating the Viewer
     //////////////////////////////////////////////////////////////////////////
